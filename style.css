@@ -1,0 +1,120 @@
+:root{
+    --text-color:#ffffff;
+    --secondary-text-color:black;
+    /* --accent-color:;
+    --accent-hover-color:; */
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1d1d1d;
+    color: var(--text-color);
+}
+#parent{
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    height: 700px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:1fr 1fr;
+    gap: 10px;
+}
+.card{
+    width: 100%;
+    max-width:300px;
+    margin:20px auto;
+    background-color: bisque;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.card img{
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 30px;
+    transition: transform 0.5s;
+}
+.card h3{
+    margin-top: 15px;
+    color: var(--secondary-text-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: larger;
+}
+.card p{
+    margin-bottom: 10px;
+    color: var(--secondary-text-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size:small;
+}
+.btn{
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 15px;
+    padding: 8px;
+    border: none;
+    background-image: linear-gradient(to right,lime,lightblue);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    font-size: smaller;
+    transition: opacity 0.3s;
+    transition: transform 0.4s;
+}
+.btn:hover{
+    cursor: pointer;
+    /* background: lightblue; */
+    opacity: 0.65;
+    transform: translateY(-6px);
+}
+.card img:hover{
+    transform: scale(1.095);
+}
+.card-3{
+    /* grid-area:-1/-3/-2/-2; */
+    grid-column: 2;
+    grid-row: 1;
+    transform: translateY(50%);
+    align-self: end;
+}
+.card-2{
+    grid-area:-2/-2/-3/-1; 
+}
+/*Mobile*/
+@media(max-width:600px){
+    #parent{
+        display: flex;
+        flex-direction: column;
+        align-items:start;
+    }
+    .card{
+        max-width: 300px;
+    }
+    .card-3{
+        grid-column: auto;
+        grid-row: auto;
+        transform:none;
+        align-self: auto;
+    }
+}
+/*Tabs*/
+@media(max-width:900px){
+    #parent{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .card{
+        max-width: 300px;
+    }
+    .card-3{
+        grid-area:-1/-2/-2/-3;
+        transform:none;
+        align-self: auto;
+    }
+}
